@@ -11,19 +11,15 @@ FastApi Github：https://github.com/tiangolo/fastapi
 Typer 官方文档：https://typer.tiangolo.com/
 """
 
-from fastapi import FastAPI,Request
+from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 from api.api_v1.api import api_router
-from vue.fadmin import fadmin
 
 # 加载Vue项目
 import os
 from fastapi.responses import HTMLResponse  # 响应html
 from fastapi.staticfiles import StaticFiles # 设置静态目录
-from fastapi.templating import Jinja2Templates
-from pathlib import Path
-
 
 app = FastAPI(
 	title="FastAPI-Platform",
@@ -31,8 +27,6 @@ app = FastAPI(
 	version="1.0",
 )
 
-
-app.include_router(fadmin)
 # 初始化数据库连接
 # init_db()
 
@@ -69,4 +63,4 @@ def main():
 
 if __name__ == '__main__':
 	import uvicorn
-	uvicorn.run(app="main:app",port=8010,reload=True)
+	uvicorn.run(app="main:app",port=8000,reload=True)
