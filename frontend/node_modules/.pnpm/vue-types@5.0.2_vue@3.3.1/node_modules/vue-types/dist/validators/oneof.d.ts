@@ -1,0 +1,1 @@
+export default function oneOf<D, T extends readonly D[] = readonly D[]>(arr: T): import("../types").VueTypeDef<T[number]>;
