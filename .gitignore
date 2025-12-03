@@ -1,0 +1,58 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Vite / Vue
+dist/
+dist-ssr/
+.cache/
+.vite/
+.vite-temp/
+vite.config.ts.timestamp-*
+vite.config.js.timestamp-*
+
+# 环境变量
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+
+# 编辑器
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志
+logs
+*.log
+
+# 构建产物
+/build/
+/out/
+
+# 临时文件
+tmp/
+temp/
+
+# 测试覆盖率
+coverage/
+.nyc_output/
+
+# pnpm store（可选，不想提交全局缓存路径）
+.pnpm-store/
+
+# 如果你用 commitlint + husky
+.husky/_

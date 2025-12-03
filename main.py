@@ -77,7 +77,7 @@ def read_root():
     return {"Hello": "World"}
 
 # 配置静态资源：挂载 Vue dist 目录（自动处理 / 根路径）
-app.mount("/", StaticFiles(directory="frontend/dist", html=True), name="index")
+app.mount("/", StaticFiles(directory="frontend/vue-pure-admin/dist", html=True), name="index")
 
 # （可选）备用根路径，如果 mount 不生效
 @app.get("/")
