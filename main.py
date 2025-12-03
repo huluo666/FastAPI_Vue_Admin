@@ -80,7 +80,6 @@ def read_root():
 # 自动检测 dist 目录位置
 DIST_DIR = None
 possible_paths = [
-    Path(__file__).parent / "dist",  # Vercel 部署时
     Path(__file__).parent / "frontend" / "vue-pure-admin" / "dist",  # 本地开发时
 ]
 
