@@ -1,33 +1,24 @@
-# requirements.txt
-# 适用于 Render 免费层部署（Python 3.11 或 3.12）
-# 直接复制粘贴到项目根目录即可
+# 测试环境：Python 3.12, Vercel Free Tier
+# 移除 starlette 显式版本，让 FastAPI 自动处理（避免 <0.42.0 冲突）
 
 fastapi==0.115.0
 uvicorn[standard]==0.30.6
 pydantic==2.9.2
-pydantic-settings==2.5.2          # 方便以后用 .env 管理配置（强烈推荐）
+pydantic-settings==2.5.2
 
-# 数据库相关（Render 免费 PostgreSQL）
+# 数据库（Vercel Postgres 免费层兼容）
 SQLAlchemy==2.0.36
 psycopg2-binary==2.9.9
-alembic==1.13.3                    # 数据库迁移（推荐使用）
+alembic==1.13.3
 
-# CORS 中间件（你已经在用）
-starlette==0.40.0
-
-# 可选但强烈推荐（生产环境日志更好看）
-gunicorn==23.0.0                   # Render 免费层虽然不用，但多进程时有用
-python-multipart==0.0.9            # 如果有文件上传表单
-
-# 如果你用了 Typer 做 CLI 命令（比如 init_db、seed 数据等）
-typer[all]==0.12.5
-
-# 如果你用了异步 PostgreSQL 驱动（性能更好，推荐替换 psycopg2）
-# 替换上面 psycopg2-binary 这行，改用下面这行（二选一）
-# asyncpg==0.29.0
-# sqlalchemy[asyncio]==2.0.36
-
-# 如果你用了 JWT 认证（大多数项目都会用）
+# 认证/工具（如果用）
 PyJWT==2.9.0
 passlib[bcrypt]==1.7.4
 python-jose[cryptography]==3.3.0
+
+# 其他（CORS 已包含在 Starlette/FastAPI 中）
+python-multipart==0.0.9  # 文件上传
+typer[all]==0.12.5      # CLI
+
+# gunicorn（Vercel 不强制用，但备用多进程）
+gunicorn==23.0.0
